@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+	<title>个性化空调参数智能预载系统</title>
+	<link rel="icon" href="static/img/logo.png" sizes="16x16" type="image/png">
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=0.6">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content=""/>
+	
+	<style>
+		.button1 {
+			color: #fff;
+			background: #f7296f;
+			border: none;
+			padding: 10px 0;
+			margin-top: 5px;
+			outline: none;
+			width: 40%;
+			font-size: 13px;
+			cursor: pointer;
+			letter-spacing: 2px;
+			-webkit-transition: 0.5s all;
+			-o-transition: 0.5s all;
+			-moz-transition: 0.5s all;
+			-ms-transition: 0.5s all;
+			transition: 0.5s all;
+			box-shadow: 2px 2px 6px rgb(102, 61, 8);
+		}
+		.button1:hover {
+			background:rgb(102, 61, 8);
+			-webkit-transition: 0.5s all;
+			-o-transition: 0.5s all;
+			-moz-transition: 0.5s all;
+			-ms-transition: 0.5s all;
+			transition: 0.5s all;
+		}
+	</style>
+		
+
+
+	<!-- Meta tag Keywords -->
+	<!-- css files -->
+	<link rel="stylesheet" href="static/css/style.css" type="text/css" media="all" />
+	<!-- Style-CSS -->
+	<link rel="stylesheet" href="static/css/fontawesome-all.css">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
+</head>
+
+<body>
+	<!-- bg effect -->
+	<div id="bg">
+		<canvas></canvas>
+		<canvas></canvas>
+		<canvas></canvas>
+	</div>
+	<!-- //bg effect -->
+	<!-- title -->
+	<h1>个性化空调参数智能预载系统</h1>
+	<!-- //title -->
+
+
+	<!-- content -->
+	<div class="sub-main-w3">
+		<form  method="POST" style="width: 550px; height: max-content;">{% csrf_token %}
+			<div class="form-style-agile" style="text-align: center;">
+				<h2 style="text-align:center;">错误提示</h2>
+				<hr style="align-self: center;" width="405px" /><br>
+				{% for each in error %}
+				<label>{{ each }}</label><br>
+				{% endfor %}
+			</div>
+			<!-- input style="height: 50px;" type="submit" οnclick="javascript:history.back(-1);" value="返回上页" -->
+			<a href="javascript:;" onClick="javascript:history.back(-1);"><button class="button1" type="button" style="width: 140px; height: 45px;">返回上页</button></a>
+			</form>
+	</div>
+
+	<!-- copyright -->
+	<div class="footer">
+		<p>
+			<a href="team">
+				<img src="static/img/logo.png" style="vertical-align:middle;" alt="logo加载失败，请点击刷新" width="70px" height="50px">
+			</a>
+				Copyright &copy; 2020. All rights reserved. 
+			<a href="team"><u>西安交大PCPS小组</u></a>
+		</p>
+	</div>
+	<!-- //copyright -->
+
+	<!-- Jquery -->
+	<script src="static/js/jquery-3.3.1.min.js"></script>
+	<!-- //Jquery -->
+
+	<!-- effect js -->
+	<script src="static/js/canva_moving_effect.js"></script>
+	<!-- //effect js -->
+
+</body>
+
+</html>

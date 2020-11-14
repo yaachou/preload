@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+	<title>个性化空调参数智能预载系统</title>
+	<!-- Meta tag Keywords -->
+	<link rel="icon" href="static/img/logo.png" type="image/png"> 
+	<meta name="viewport" content="width=device-width, initial-scale=0.6">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content=""/>
+	<!-- Meta tag Keywords -->
+	<!-- css files -->
+	<link rel="stylesheet" href="static/css/dialog.css" />
+	<link rel="stylesheet" href="static/css/style.css" type="text/css" media="all" />
+	<!-- Style-CSS -->
+	<link rel="stylesheet" href="static/css/fontawesome-all.css">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
+</head>
+
+<body>
+	<!-- bg effect -->
+	<div id="bg">
+		<canvas></canvas>
+		<canvas></canvas>
+		<canvas></canvas>
+	</div>
+	<!-- //bg effect -->
+
+	<!-- title -->
+	<h1>个性化空调参数智能预载系统<div style="text-align: center;"></h1>
+	<!-- //title -->
+
+	<!-- content -->
+	<div class="sub-main-w3">
+		<form action="process" method="POST">
+			{% csrf_token %}	
+			<div class="form-style-agile" style="height: 370px;">
+				<h2 style="text-align:center;">欢迎登录</h2>
+				<hr style="align-self: center;" width="505px" /><br>
+				<div style="width:505px; height:100px">
+					<label>
+						<img src="static/img/card.png" height="20px" width="20px" style="vertical-align: middle;">
+						身份证号
+						<a class="xd-trigger hover-shadow" data-effect="3d_slit" href="#" style="color:green">（<u>查看提示</u>）</a>
+					</label>
+					<input style="width:505px; height:46px; padding:12px" placeholder="根据提示输入10位数字" name="card" type="text" required="">
+				</div>
+				<div style="width:505px; height:100px">
+					<label>
+						<img src="static/img/hotel.png" height="20px" width="20px" style="vertical-align: middle;">
+						酒店/宾馆号
+					</label>
+					<select name="hotel" style="width:505px; height:46px; padding:10px" >
+						<optgroup label="1-华北地区">
+							<option value="beijing001" selected>北京001</option>
+						</optgroup>
+						<optgroup label="2-华南地区">
+							<option value="foshan001">佛山001</option>
+						</optgroup>					
+						<optgroup label="3-华东地区">
+							<option value="shanghai001">上海003</option>
+						</optgroup>						
+						<optgroup label="4-西南地区">
+							<option value="chengdu001">成都003</option>
+						</optgroup>
+						<optgroup label="5-华中地区">
+							<option value="zhengzhou001">郑州002</option>
+						</optgroup>						
+						<optgroup label="6-西北地区">
+							<option value="xian001">西安001</option>
+						</optgroup>
+						<optgroup label="7-东北地区">
+							<option value="changchun002">长春004</option>
+						</optgroup>
+					</select>
+				</div>
+				<div style="width:505px; height:100px">
+					<label>
+						<img src="static/img/room.png" height="20px" width="20px" style="vertical-align: middle;">
+						房间号
+					</label>
+					<select name="room" type="text" style="width:505px; height:46px; padding:12px" required="">
+						<option value="1001">1001</option>
+						<option value="2012">2012</option>
+						<option value="3103">3103</option>
+						<option value="4045">4045</option>
+						<option value="5032">5032</option>
+					</select>
+				</div>
+			</div>
+			
+			<!-- //checkbox -->
+			<input type="submit" value="登录入住" style="width: 140px; height: 45px;">
+		</form>
+	</div>
+
+	<!-- copyright -->
+	<div class="footer">
+		<p>
+			<a href="team">
+				<img src="static/img/logo.png" style="vertical-align:middle;" alt="logo加载失败，请点击刷新" width="70px" height="50px">
+			</a>
+				Copyright &copy; 2020. All rights reserved. 
+			<a href="team"><u>西安交大PCPS小组</u></a>
+		</p>
+	</div>
+	<!-- //copyright -->
+
+	<!-- Jquery -->
+	<script src="static/js/jquery-3.3.1.min.js"></script>
+	<!-- //Jquery -->
+
+	<!-- effect js -->
+	<script src="static/js/dialog1.js" charset="UTF-8"></script>    
+    <script src="static/js/dialog2.js"></script>
+	<script src="static/js/canva_moving_effect.js"></script>
+	<!-- //effect js -->
+
+</body>
+
+</html>

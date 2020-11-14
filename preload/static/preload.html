@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+	<title>个性化空调参数智能预载系统</title>
+	<link rel="icon" href="static/img/logo.png" sizes="16x16" type="image/png">
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=0.6">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content=""/>
+
+	<style>
+		.button1 {
+			color: #fff;
+			background: #f7296f;
+			border: none;
+			padding: 10px 0;
+			margin-top: 5px;
+			outline: none;
+			width: 40%;
+			font-size: 13px;
+			cursor: pointer;
+			letter-spacing: 2px;
+			-webkit-transition: 0.5s all;
+			-o-transition: 0.5s all;
+			-moz-transition: 0.5s all;
+			-ms-transition: 0.5s all;
+			transition: 0.5s all;
+			box-shadow: 2px 2px 6px rgb(102, 61, 8);
+		}
+
+		.button1:hover {
+			background:rgb(102, 61, 8);
+			-webkit-transition: 0.5s all;
+			-o-transition: 0.5s all;
+			-moz-transition: 0.5s all;
+			-ms-transition: 0.5s all;
+			transition: 0.5s all;
+		}
+
+	</style>
+
+	<!-- Meta tag Keywords -->
+	<!-- css files -->
+	<link rel="stylesheet" href="static/css/style.css" type="text/css" media="all" />
+	<!-- Style-CSS -->
+	<link rel="stylesheet" href="static/css/fontawesome-all.css">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
+</head>
+
+<body>
+	<!-- bg effect -->
+	<div id="bg">
+		<canvas></canvas>
+		<canvas></canvas>
+		<canvas></canvas>
+	</div>
+	<!-- //bg effect -->
+	<!-- title -->
+	<h1>个性化空调参数智能预载系统</h1>
+	<!-- //title -->
+
+
+	<!-- content -->
+	<div class="sub-main-w3">				
+		<form style="width:min-content;height:max-content;" action="preload" method="POST">{% csrf_token %}
+			<div class="form-style-agile" style="height:max-content;">
+				<h2 style="text-align:center;">预载参数</h2>
+				<hr style="align-self: center;" width="415px" />
+				
+				<div style="color:green;">当地时间{{time}}，天气信息如下：</div>
+				&emsp;&ensp;
+				<iframe width="375" scrolling="no" height="40" allowtransparency="true" src={{src}}></iframe>
+				<div style="text-align: center;">
+					<label>温度(℃)&ensp; </label>
+					<a href="javascript:;" style="color:crimson;" id="add1">+</a>
+					<input name="temperature" id="t" style="width:70px;height:15px;padding:10px;" type="number" readonly="readonly" value="{{t}}">
+					<a href="javascript:;" style="color:lime;" id="reduce1">-</a>
+				</div>
+				<div style="text-align: center;">	
+					<label>风量(档)&ensp; </label>
+					<a href="javascript:;" style="color:crimson;" id="add2">+</a>
+					<input name="velocity" id="v" style="width:70px;height:15px;padding:10px;" type="number" readonly="readonly" value="{{v}}">
+					<a href="javascript:;" style="color:lime;" id="reduce2">-</a>
+				</div>
+				<div style="text-align: center;">
+					<label>风向(档)&ensp; </label>
+					<a href="javascript:;" style="color:crimson;" id="add3">+</a>			
+					<input name="direction" id="d" style="width:70px;height:15px;padding:10px;" type="number" readonly="readonly" value="{{d}}">
+					<a href="javascript:;" style="color:lime;" id="reduce3">-</a>
+				</div>
+
+				<br>
+				<h5 style="color:white"><a style="color: red">【提示】</a>{{ tip1 }}</h5>
+				<h5 style="color:white; text-align: center;">{{ tip2 }}</h5>
+			</div>
+
+			<button class="button1" type="submit" style="width: 150px; height: 40px;">小程序/遥控器调节</button>&emsp; &emsp;
+			<a href="exit"><button class="button1" type="button" style="width: 150px; height: 40px;">登出酒店/宾馆</button></a>
+			
+		</form>
+	</div>
+
+	
+	
+	<!-- copyright -->
+	<div class="footer" style="text-align: center;">
+		<a style="color:orange;">【友情链接】</a>
+		<div style="text-align: center;">
+			<a href="http://gs.xjtu.edu.cn/" target="_blank" title="西安交通大学研究生院-官网"><img src="static/img/xjtu-red.png" style="height: 50px;">&emsp;</a>
+			<a href="http://www.iharbour.cn/" target="_blank" title="中国西部科技创新港-官网"><img src="static/img/iharbour.png" style="height: 55px;">&emsp;</a>
+			<a href="https://www.midea.com/cn/" target="_blank" title="美的-官网"><img src="static/img/midea.png" style="height: 45px;">&emsp;</a>
+		</div><br>
+		<p>
+			<a href="team">
+				<img src="static/img/logo.png" style="vertical-align:middle;" alt="logo加载失败，请点击刷新" width="70px" height="50px">
+			</a>
+				Copyright &copy; 2020. All rights reserved. 
+			<a href="team"><u>西安交大PCPS小组</u></a>
+		</p>
+	</div>
+	<!-- //copyright -->
+
+	<!-- Jquery -->
+	<script src="static/js/jquery-3.3.1.min.js"></script>
+	<!-- //Jquery -->
+
+	<!-- effect js -->
+	<script src="static/js/canva_moving_effect.js"></script>
+	<!-- //effect js -->
+
+	<script>
+		var add1 = document.getElementById("add1");
+        var reduce1 = document.getElementById("reduce1");
+        var t = document.getElementById("t");
+
+		var add2 = document.getElementById("add2");
+        var reduce2 = document.getElementById("reduce2");
+        var v = document.getElementById("v");
+
+		var add3 = document.getElementById("add3");
+        var reduce3 = document.getElementById("reduce3");
+        var d = document.getElementById("d");
+
+        add1.onclick = function() {
+			if(t.value >= 30)
+				t.value = 30;
+			else
+            	t.value = parseInt(t.value) + 1;
+        }
+
+        reduce1.onclick = function() {
+            if(t.value <= 16) 
+                t.value = 16;			
+			else
+                t.value = parseInt(t.value) - 1;
+        }
+
+		add2.onclick = function() {
+			if(v.value >= 5)
+				v.value = 5;
+			else
+            	v.value = parseInt(v.value) + 1;
+        }
+
+        reduce2.onclick = function() {
+            if(v.value <= 1) 
+                v.value = 1;			
+			else
+                v.value = parseInt(v.value) - 1;
+        }
+
+		add3.onclick = function() {
+			if(d.value >= 5)
+				d.value = 5;
+			else
+            	d.value = parseInt(d.value) + 1;
+        }
+
+        reduce3.onclick = function() {
+            if(d.value <= 1) 
+                d.value = 1;			
+			else
+                d.value = parseInt(d.value) - 1;
+        }
+	</script>
+
+</body>
+
+</html>

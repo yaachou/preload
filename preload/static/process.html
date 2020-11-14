@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+  <title>个性化空调参数智能预载系统</title>
+  <link rel="icon" href="static/img/logo.png" sizes="16x16" type="image/png">
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=0.6">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content="">
+
+	<!-- css files -->
+	<link rel="stylesheet" href="static/css/style.css" type="text/css" media="all">
+	<link rel="stylesheet" href="static/css/ui.css">
+  <link rel="stylesheet" href="static/css/ui.progress-bar.css">
+
+
+  <!-- //css files -->
+
+</head>
+
+<body>
+	<!-- bg effect -->
+	<div id="bg">
+		<canvas></canvas>
+		<canvas></canvas>
+		<canvas></canvas>
+	</div>
+	<!-- //bg effect -->
+	<!-- title -->
+	<h1>个性化空调参数智能预载系统</h1>
+	<!-- //title -->
+
+
+  <!-- content -->
+
+  <div id="container"><br>
+
+    <div class="form-style-agile">
+      <h2 style="text-align:center;">处理进度</h2>
+      <hr style="align-self: center;" width="505px" />
+    </div>
+
+    <!-- Progress bar -->
+    <div id="progress_bar" class="ui-progress-bar ui-container">
+      <div class="ui-progress" style="width: 80%;">
+        <span class="ui-label" style="display:none;">Processing <b class="value">80%</b></span>
+      </div>
+    </div>
+    <!-- /Progress bar -->
+
+    <div class="content" id="main_content" style="display: none; text-align: center;">
+      <p>
+        身份证号码信息分析完成********************[✔]<br>
+        酒店或宾馆信息分析完成********************[✔]<br>
+        本地的天气信息爬取完成********************[✔]<br>
+        机器学习算法模型已启动********************[✔]<br>
+        个性化空调参数计算完毕********************[✔]<br>
+        房间空调参数已设置完毕********************[✔]<br><br>
+      </p>
+      <p class="small">【<b style="color: red;">提示</b>】请稍等，系统将在&ensp;<span id="jumpTo" style="color: red;">7</span>&ensp;秒后自动跳转界面！</p>     
+    </div>
+  </div>
+  <!-- //content -->
+
+	<!-- copyright -->
+	<div class="footer">
+		<p>
+			<a><img src="static/img/logo.png" style="vertical-align:middle;" alt="logo加载失败，请点击刷新" width="70px" height="50px"></a>
+			Copyright &copy; 2020. All rights reserved. 
+			西安交大PCPS小组
+		</p>
+	</div>
+	<!-- //copyright -->
+
+	<!-- effect js -->
+	<script src="static/js/jquery-3.3.1.min.js"></script>
+	<script src="static/js/canva_moving_effect.js"></script> 
+  <script src="static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="static/js/progress.js" type="text/javascript" charset="utf-8"></script>
+  <!-- //effect js --> 
+  
+  <!-- 固定时间后自动跳转页面 -->
+  <script type="text/javascript">
+    function countDown(secs,surl){
+     //alert(surl);
+     var jumpTo = document.getElementById('jumpTo');
+     jumpTo.innerHTML=secs;
+     if(--secs>0){
+      setTimeout("countDown("+secs+",'"+surl+"')",1000);
+     }
+     else
+     {
+      location.href=surl;
+     }
+    }
+    countDown(10,'preload');
+  </script>
+
+
+</body>
+
+</html>

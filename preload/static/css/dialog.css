@@ -1,0 +1,283 @@
+/* General styles for dialogs */
+
+
+/*
+Styles for the html/body for special dialog where we want 3d effects
+Note that we need a xd-container wrapping all content on the page for the
+perspective effects (not including the dialogs and the overlay).
+*/
+
+.xd-perspective, .xd-perspective body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.xd-perspective body {
+    background: #222;
+    -webkit-perspective: 500px;
+    -moz-perspective: 500px;
+    perspective: 500px;
+}
+
+.xd-container {
+    background: #fffffe;
+    min-height: 100%;
+}
+
+.xd-dialog {
+    position: fixed;
+    min-width: 320px;
+    width: 600px;
+    height: auto;
+    visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.xd-center {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.xd-center-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.xd-show {
+    visibility: visible;
+}
+
+.xd-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.6);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.xd-show-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.xd-spin-overlay {
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+
+/* Content styles */
+
+.xd-content {
+    color: #000;
+    background: #fffffe;
+    position: relative;
+    border-radius: 3px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 40px 0 rgba(0, 0, 0, 0.8);
+}
+
+.xd-content .xd-title {
+    margin: 0;
+    padding: 0.6em;
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: 500;
+    opacity: 0.8;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px 3px 0 0;
+    border-bottom: #ccc 1px solid;
+}
+
+.xd-content .xd-body {
+    padding: 1em 2em;
+    font-weight: 300;
+    line-height: 20px;
+    width: 520px;
+    height: auto;
+    overflow: auto;
+}
+
+.xd-content .xd-buttons {
+    padding: 0em 3em 2em 3em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.xd-content .xd-button {
+    border: none;
+    padding: 0.6em 1.2em;
+    background: #9e9e9e;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    min-width: 10em;
+    margin: 0.2em 1em;
+    border-radius: 2px;
+    outline: none;
+}
+
+.xd-content .xd-button.xd-ok {
+    background: #4caf50;
+}
+
+.xd-content .xd-button.xd-delete {
+    background: #f44336;
+}
+
+.xd-content .xd-button:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+/* Individual dialog styles with animations/transitions */
+
+/* Effect 13: 3D slit */
+
+.xd-effect-13.xd-dialog {
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+}
+
+.xd-effect-13 .xd-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-animation: slit2 .7s forwards ease-in;
+    -moz-animation: slit2 .7s forwards ease-in;
+    animation: slit2 .7s forwards ease-in;
+    -webkit-transition: all 0.7s;
+    -moz-transition: all 0.7s;
+    transition: all 0.7s;
+}
+
+.xd-show.xd-effect-13 .xd-content {
+    -webkit-animation: slit .7s forwards ease-out;
+    -moz-animation: slit .7s forwards ease-out;
+    animation: slit .7s forwards ease-out;
+}
+
+.xd-effect-13~.xd-overlay {
+    -webkit-transition: all 0.3s 0.4s;
+    -moz-transition: all 0.3s 0.4s;
+    transition: all 0.3s 0.4s;
+}
+
+.xd-show.xd-effect-13~.xd-overlay {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+@-webkit-keyframes slit {
+    0% {
+        -webkit-transform: translateZ(-3000px) rotateY(90deg);
+        opacity: 0;
+    }
+    50% {
+        -webkit-transform: translateZ(-250px) rotateY(89deg);
+        opacity: .5;
+        -webkit-animation-timing-function: ease-out;
+    }
+    100% {
+        -webkit-transform: translateZ(0) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes slit {
+    0% {
+        -moz-transform: translateZ(-3000px) rotateY(90deg);
+        opacity: 0;
+    }
+    50% {
+        -moz-transform: translateZ(-250px) rotateY(89deg);
+        opacity: .5;
+        -moz-animation-timing-function: ease-out;
+    }
+    100% {
+        -moz-transform: translateZ(0) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes slit {
+    0% {
+        transform: translateZ(-3000px) rotateY(90deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translateZ(-250px) rotateY(89deg);
+        opacity: .5;
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: translateZ(0) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes slit2 {
+    0% {
+        -webkit-transform: translateZ(0) rotateY(0deg);
+        opacity: 1;
+    }
+    50% {
+        -webkit-transform: translateZ(-250px) rotateY(89deg);
+        opacity: .5;
+        -webkit-animation-timing-function: ease-out;
+    }
+    100% {
+        -webkit-transform: translateZ(-3000px) rotateY(90deg);
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes slit2 {
+    0% {
+        -moz-transform: translateZ(0) rotateY(0deg);
+        opacity: 1;
+    }
+    50% {
+        -moz-transform: translateZ(-250px) rotateY(89deg);
+        opacity: .5;
+        -moz-animation-timing-function: ease-out;
+    }
+    100% {
+        -moz-transform: translateZ(-3000px) rotateY(90deg);
+        opacity: 0;
+    }
+}
+
+@keyframes slit2 {
+    0% {
+        transform: translateZ(0) rotateY(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateZ(-250px) rotateY(89deg);
+        opacity: .5;
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: translateZ(-3000px) rotateY(90deg);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,78 @@
+
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 80%;
+  background:  #3621f3;
+}
+
+
+#container {
+  margin: 0 auto;
+  width: 500px;
+  padding: 2em;
+  
+
+  background-color: transparent;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.0976562) 1px 0px 1px,
+                      rgba(0, 0, 0, 0.046875) 1px -1px 0px,
+                      rgba(0, 0, 0, 0.0976562) 0px 1px 0px,
+                      rgba(0, 0, 0, 0.0976562) -1px 0px 1px,
+                      rgba(0, 0, 0, 0.046875) -1px -1px 0px,
+                      rgba(0, 0, 0, 0.148438) 0px 3px 3px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.0976562) 1px 0px 1px,
+                   rgba(0, 0, 0, 0.046875) 1px -1px 0px,
+                   rgba(0, 0, 0, 0.0976562) 0px 1px 0px,
+                   rgba(0, 0, 0, 0.0976562) -1px 0px 1px,
+                   rgba(0, 0, 0, 0.046875) -1px -1px 0px,
+                   rgba(0, 0, 0, 0.148438) 0px 3px 3px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.65, rgba(10,10,10,0.17)), color-stop(1, rgb(10,10,10,0.17)));
+  background: -moz-linear-gradient(rgba(10,10,10,0.17) 65%, rgb(10,10,10,0.17) 100%);
+}
+
+.content {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+::selection {
+  background: #dd62b8;
+  color: rgba(66, 11, 194, 0.848);
+}
+
+::-moz-selection {
+  color: rgba(43, 10, 160, 0.848);
+  background: #dd62d8;
+}
+
+.content p{
+  color: rgb(253, 252, 252);
+  font-size: 1.4em;
+  line-height: 1.3em;
+}
+
+.content p.small {
+  font-size: 1.1em;
+}
+
+.content h1 {
+  font-size: 2.5em;
+  color: rgba(0,0,0,0.6);
+  text-shadow: rgba(255,255,255, 0.9) 0 1px 0px;
+  font-weight: bold;
+  
+}
+
+.content a, .content a:visited {
+  color: #4083A9;
+  text-decoration: none;
+}
+
+.content a:hover {
+  color: #234E6C;
+}
+
+.ui-progress-bar {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
